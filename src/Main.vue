@@ -90,42 +90,49 @@
         </form>
       </div>
       <div class="col-md-8">
-        <table class="table table-striped table-light table-hover table-danger">
-          <thead>
-            <tr>
-              <th>No</th>
-              <th>Nama</th>
-              <th>Tanggal</th>
-              <th>Jumlah Tabung</th>
-              <th>Jumlah Uang</th>
-              <th>Lunas Tabung</th>
-              <th>Lunas Uang</th>
-              <th>Aksi</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="(row, index) in titips" :key="index">
-              <td>{{ index + 1 }}</td>
-              <td>{{ row.nama }}</td>
-              <td>{{ row.hari }}</td>
-              <td>{{ row.j_tabung }}</td>
-              <td>{{ row.j_uang }}</td>
-              <td>{{ row.l_tabung }}</td>
-              <td>{{ row.l_uang }}</td>
-              <td>
-                <button class="badge bg-warning" @click="editTitip(row, index)">
-                  Edit
-                </button>
-                <button
-                  class="badge bg-danger ms-2"
-                  @click="deleteTitip(index)"
-                >
-                  delete
-                </button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="table-responsive">
+          <table
+            class="table table-striped table-light table-hover table-danger"
+          >
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>Nama</th>
+                <th>Tanggal</th>
+                <th>Jumlah Tabung</th>
+                <th>Jumlah Uang</th>
+                <th>Lunas Tabung</th>
+                <th>Lunas Uang</th>
+                <th>Aksi</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="(row, index) in titips" :key="index">
+                <td>{{ index + 1 }}</td>
+                <td>{{ row.nama }}</td>
+                <td>{{ row.hari }}</td>
+                <td>{{ row.j_tabung }}</td>
+                <td>{{ row.j_uang }}</td>
+                <td>{{ row.l_tabung }}</td>
+                <td>{{ row.l_uang }}</td>
+                <td>
+                  <button
+                    class="badge bg-warning"
+                    @click="editTitip(row, index)"
+                  >
+                    Edit
+                  </button>
+                  <button
+                    class="badge bg-danger ms-2"
+                    @click="deleteTitip(index)"
+                  >
+                    delete
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>
