@@ -10,38 +10,24 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/1.11.4/css/dataTables.bootstrap5.min.css"
+    />
 
     <title>Vite App</title>
   </head>
-  <body class="bg-info">
+  <body class="bg-light">
     <div id="app"></div>
     <script type="module" src="/src/main.js"></script>
 
-    <script type="text/javascript">
-      const rupiah = document.getElementById("rupiah");
-      rupiah.addEventListener("keyup", function (e) {
-        // tambahkan 'Rp.' pada saat form di ketik
-        // gunakan fungsi formatRupiah() untuk mengubah angka yang di ketik menjadi format angka
-        rupiah.value = formatRupiah(this.value, "Rp. ");
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.4/js/dataTables.bootstrap5.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#example").DataTable();
       });
-
-      /* Fungsi formatRupiah */
-      function formatRupiah(angka, prefix) {
-        var number_string = angka.replace(/[^,\d]/g, "").toString(),
-          split = number_string.split(","),
-          sisa = split[0].length % 3,
-          rupiah = split[0].substr(0, sisa),
-          ribuan = split[0].substr(sisa).match(/\d{3}/gi);
-
-        // tambahkan titik jika yang di input sudah menjadi angka ribuan
-        if (ribuan) {
-          separator = sisa ? "." : "";
-          rupiah += separator + ribuan.join(".");
-        }
-
-        rupiah = split[1] != undefined ? rupiah + "," + split[1] : rupiah;
-        return prefix == undefined ? rupiah : rupiah ? "Rp. " + rupiah : "";
-      }
     </script>
   </body>
 </html>
